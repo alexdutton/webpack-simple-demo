@@ -24,18 +24,15 @@ module.exports = {
         rules: [
             {
                 test: /.(scss|css)$/,
-
                 use: [{
                     loader: MiniCssExtractPlugin.loader
                 }, {
                     loader: "css-loader",
-
                     options: {
                         sourceMap: true
                     }
                 }, {
                     loader: "sass-loader",
-
                     options: {
                         sourceMap: true
                     }
@@ -51,5 +48,4 @@ module.exports = {
         new BundleTracker({filename: './webpack-stats.json'}),
         new MiniCssExtractPlugin({ filename:'[name]-[chunkhash].css' })
     ],
-    watch: true
 }
