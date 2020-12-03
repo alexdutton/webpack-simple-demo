@@ -16,7 +16,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name]-[hash].js",
         publicPath: "/static/bundles/"
-
     },
 
     module: {
@@ -37,10 +36,16 @@ module.exports = {
                         sourceMap: true
                     }
                 }]
-            },
-            {
-                test: /.js$/,
-                use: []
+            },    {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-proposal-object-rest-spread']
+                    }
+                }
             }
         ]
     },
